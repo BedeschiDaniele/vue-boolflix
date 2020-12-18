@@ -6,6 +6,11 @@
 body {
   background-color: black;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -30,13 +35,34 @@ input {
   margin-right: 20px;
   color: white;
 }
- .left {
-  margin-top: 15px;
+.left {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
   color: red;
 }
+ul {
+  display: flex;
+  list-style: none;
+}
+li:first-child {
+  margin-left: 40px;
+}
+li {
+  margin-left: 20px;
+}
 .right {
+  display: flex;
+  align-items: center;
   margin-top: 20px;
   color: white;
+}
+#profile-avatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 50px;
+  border: 1px solid red;
 }
 /* Film */
 .container-film {

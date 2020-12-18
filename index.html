@@ -13,10 +13,18 @@
       <header>
         <div class="left">
           <h1>Boolflix</h1>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Serie Tv</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Nuovi e popolari</a></li>
+            <li><a href="#">La mia lista</a></li>
+          </ul>
         </div>
         <div class="right">
           <input v-model="filmTitle" placeholder="Inserisci il titolo del film">
           <i @click="searchfilm" id="search" class="fas fa-search"></i>
+          <img id="profile-avatar" src="https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png" alt="profile-avatar">
         </div>
       </header>
       <div class="container-film">
