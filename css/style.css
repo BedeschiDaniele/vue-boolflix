@@ -35,3 +35,21 @@ input {
   margin-top: 20px;
   color: white;
 }
+/* Film */
+.container-film {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* width: 98%; */
+  margin: auto;
+  padding: 100px 0
+}
+.film {
+  margin: 20px;
+  padding: 10px;
+}
+img {
+  width: 220px;
+  height: 330px;
+}
