@@ -29,7 +29,7 @@
       </header>
       <div class="container-film">
         <div v-for="film in films"class="film">
-          <img :src='address+film.backdrop_path' alt="">
+          <img :src='address+film.poster_path' alt="">
           <div class="layover">
             <p>Titolo: <span>{{film.title}}</span></p>
             <p>Titolo originale: <span>{{film.original_title}}</span></p>
