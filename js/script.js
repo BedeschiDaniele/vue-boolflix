@@ -12,14 +12,13 @@ var app = new Vue (
       .get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: '1e26c6a15aa1b1d7e6be784af83e54ac',
-          query: this.filmTitle
+          query: this.filmTitle,
+          language:'it-IT'
         }
       })
       .then((result) => {
         this.films = result.data.results;
-        console.log(this.films[0].id);
       });
-      console.log(this.filmTitle);
     }
    }
   }
