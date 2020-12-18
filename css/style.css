@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  background-color: grey;
+  background-color: #808080;
 }
 header {
   display: flex;
@@ -18,6 +18,9 @@ header {
 h1 {
   margin-left: 20px;
   text-transform: uppercase;
+}
+span {
+  color: lightgray;
 }
 input {
   margin-right: 15px;
@@ -46,10 +49,30 @@ input {
   padding: 100px 0
 }
 .film {
+  position: relative;
   margin: 20px;
-  padding: 10px;
 }
 img {
   width: 220px;
   height: 330px;
+  border: 2px solid lightgray;
+}
+.layover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  padding-left: 10px;
+  padding-top: 40px;
+}
+.layover:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.layover i {
+  color: yellow;
 }
