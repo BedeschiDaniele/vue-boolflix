@@ -10,6 +10,9 @@ a {
   color: white;
   text-decoration: none;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
 /* Header */
 header {
   display: flex;
