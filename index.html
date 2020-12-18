@@ -15,16 +15,16 @@
           <h1>Boolflix</h1>
         </div>
         <div class="right">
-          <input type="text" value"" placeholder="Inserisci il titolo del film">
+          <input type="text" placeholder="Inserisci il titolo del film">
           <i id="search" class="fas fa-search"></i>
         </div>
       </header>
       <div class="container-film">
-        <div class="film">
-          <img src="https://www.mondadoristore.it/img/Harry-Potter-Doni-Morte-David-Yates/ea505189114270/BL/BL/10/NZO/?tit=Harry+Potter+E+I+Doni+Della+Morte+-+Parte+02+%28SE%29&aut=David+Yates" alt="">
+        <div v-for="film in films"class="film">
+          <img :src='address+film.backdrop_path' alt="">
           <div class="layover">
-            <p>Titolo: <span>Harry Potter e i doni della morte</span></p>
-            <p>Titolo originale: <span>Harry Potter and the deathly hallows</span></p>
+            <p>Titolo: <span>{{film.original_title}}</span></p>
+            <p>Titolo originale: <span>{{film.original_title}}</span></p>
             <p>Voto:
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -32,26 +32,8 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </>
-            <p>Overview: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+            <p>Overview: <span>{{film.overview}}</span></p>
           </div>
-        </div>
-        <div class="film">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/5199%2B%2B-QxmL._SY445_.jpg" alt="">
-        </div>
-        <div class="film">
-          <img src="https://librisognierealta.it/wp-content/uploads/2017/07/Harry_Potter_e_il_principe_mezzosangue.jpg" alt="">
-        </div>
-        <div class="film">
-          <img src="https://houssymovies.files.wordpress.com/2011/07/harry-potter-and-the-chamber-of-secrets-movie-poster-1020246538.jpg" alt="">
-        </div>
-        <div class="film">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/51HW4oJMdUL.jpg" alt="">
-        </div>
-        <div class="film">
-          <img src="https://m.media-amazon.com/images/I/71DmBF2SE3L._AC_SY550_.jpg" alt="">
-        </div>
-        <div class="film">
-          <img src="https://librisognierealta.it/wp-content/uploads/2017/07/Harry-potter-locandina-film-5.jpg" alt="">
         </div>
       </div>
     </div>
