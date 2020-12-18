@@ -15,8 +15,8 @@
           <h1>Boolflix</h1>
         </div>
         <div class="right">
-          <input type="text" placeholder="Inserisci il titolo del film">
-          <i id="search" class="fas fa-search"></i>
+          <input v-model="filmTitle" placeholder="Inserisci il titolo del film">
+          <i @click="searchfilm" id="search" class="fas fa-search"></i>
         </div>
       </header>
       <div class="container-film">
