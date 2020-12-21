@@ -3,11 +3,9 @@ var app = new Vue (
     el:'.root',
     data: {
       films:[],
-      a:0,
+      arraylength:0,
       votes:[],
       filmTitle:"",
-      numberstar:0,
-      numeromancante:5,
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
     methods: {
@@ -22,14 +20,11 @@ var app = new Vue (
       })
       .then((result) => {
         this.films = result.data.results;
-        this.a=result.data.results.length;
-        for (var i = 0; i < this.a; i++) {
+        this.arraylength=result.data.results.length;
+        for (var i = 0; i < this.arraylength; i++) {
           this.votes.push((Math.ceil(this.films[i].vote_average/2)));
         }
       });
-    },
-    starFilm: function () {
-       this.a = this.films.length;
     }
    }
   }
