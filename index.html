@@ -28,14 +28,14 @@
         </div>
       </header>
       <div class="container-film">
-        <div v-for="film in films"class="film">
+        <div v-for="(film,index) in films" class="film">
           <img :src='address+film.poster_path' alt="">
           <div class="layover">
             <p>Titolo: <span>{{film.title}}</span></p>
             <p>Titolo originale: <span>{{film.original_title}}</span></p>
             <p>Voto:
-              <i v-for="i in numberstar" class="fas fa-star starcolor"></i>
-              <i v-for="i in numeromancante" class="fas fa-star"></i>
+              <i v-for="vote in votes[index]" class="fas fa-star starcolor"></i>
+              <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
             </p>
             <h1>{{numberstar}}</h1>
             <h1 @click="starFilm">ciao   {{a}}</h1>
