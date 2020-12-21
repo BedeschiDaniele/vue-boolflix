@@ -5,7 +5,6 @@ var app = new Vue (
       films:[],
       arraylength:0,
       votes:[],
-      flag:"",
       filmTitle:"",
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
@@ -27,17 +26,17 @@ var app = new Vue (
         }
       });
     },
-    setflag: function () {
-      if(this.films.original_language=='en')
+    setflag: function (film) {
+      let flag="";
+      if(film.original_language=='en')
       {
-        this.flag="https://lonampio.files.wordpress.com/2014/08/bandiera-inglese.png";
-      }else if(this.films.original_language=='it') {
-        this.flag="https://images.squarespace-cdn.com/content/v1/523f1037e4b00600a82f8a21/1379871564605-ZGERRZDCXL6E34QN1514/ke17ZwdGBToddI8pDm48kHhlTY0to_qtyxq77jLiHTtZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7T-j82ScS_xjTqFYGqFrT72qZ_E0ELtHpOZiWcSG1QwIMeEVreGuQ8F95X5MZTW1Jw/Italy-256.png";
-      }else if (this.films.original_language=='es') {
-        this.flag="https://www.mondosportivo.it/home/wp-content/uploads/2017/06/Flag_of_Spain.png";
-      }else {
-        this.flag="";
+        flag="https://lonampio.files.wordpress.com/2014/08/bandiera-inglese.png";
+      }else if(film.original_language=='it') {
+        flag="https://images.squarespace-cdn.com/content/v1/523f1037e4b00600a82f8a21/1379871564605-ZGERRZDCXL6E34QN1514/ke17ZwdGBToddI8pDm48kHhlTY0to_qtyxq77jLiHTtZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7T-j82ScS_xjTqFYGqFrT72qZ_E0ELtHpOZiWcSG1QwIMeEVreGuQ8F95X5MZTW1Jw/Italy-256.png";
+      }else if (film.original_language=='es') {
+        flag="https://www.mondosportivo.it/home/wp-content/uploads/2017/06/Flag_of_Spain.png";
       }
+      return flag;
     }
    }
   }

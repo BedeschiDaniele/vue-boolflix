@@ -115,3 +115,6 @@ img {
   width: 27px;
   border: none;
 }
+.textlen {
+  text-transform: uppercase;
+}

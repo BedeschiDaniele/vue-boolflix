@@ -9,7 +9,7 @@
     <title>Boolfix</title>
   </head>
   <body>
-    <div class="root" @keypress.13="searchfilm" @keypress.13="setflag" >
+    <div class="root" @keypress.13="searchfilm">
       <header>
         <div class="left">
           <h1>Netflix</h1>
@@ -29,12 +29,16 @@
       </header>
       <div class="container-film">
         <div v-for="(film,index) in films" class="film">
-          <img v-if="film.poster_path != null" :src='address+film.poster_path' alt="film.title">
+          <img v-if="film.poster_path != null" :src='address+film.poster_path' :alt="film.title">
           <img v-else src='https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg' alt="no-image">
           <div class="layover">
             <p>Titolo: <span>{{film.title}}</span></p>
             <p>Titolo originale: <span>{{film.original_title}}</span></p>
-            <p id="lenguage">Lingua originale: <span><img class="flags" :src='flag' alt=""></span>
+            <p id="lenguage">Lingua originale:
+              <span v-if="film.original_language=='en' || film.original_language=='it' || film.original_language=='es'">
+                <img class="flags" :src=setflag(film) :alt="film.original_language">
+              </span>
+              <span class="textlen" v-else>{{film.original_language}}</span>
             </p>
             <p>Voto:
               <i v-for="vote in votes[index]" class="fas fa-star starcolor"></i>
