@@ -9,7 +9,7 @@
     <title>Boolfix</title>
   </head>
   <body>
-    <div class="root" @keypress.13="searchfilm" @keypress.13="searchseries">
+    <div class="root" @keypress.13="callfilmseries">
       <header>
         <div class="left">
           <h1>Netflix</h1>
@@ -27,6 +27,7 @@
           <img id="profile-avatar" src="https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png" alt="profile-avatar">
         </div>
       </header>
+      <!-- Film -->
       <div class="container-film">
         <div v-for="(film,index) in films" class="film">
           <img v-if="film.poster_path != null" :src='address+film.poster_path' :alt="film.title">
@@ -48,7 +49,8 @@
           </div>
         </div>
       </div>
-      <div class="container-film">
+      <!-- Serie TV -->
+      <div class="container-serie">
         <div v-for="(serie,index) in series" class="film">
           <img v-if="serie.poster_path != null" :src='address+serie.poster_path' :alt="serie.title">
           <img v-else src='https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg' alt="no-image">
@@ -62,7 +64,7 @@
               <span class="textlen" v-else>{{serie.original_language}}</span>
             </p>
             <p>Voto:
-              <i v-for="vote in votes[index]" class="fas fa-star starcolor"></i>
+              <i v-for="vote in votesserie[index]" class="fas fa-star starcolor"></i>
               <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
             </p>
             <p>Overview: <span>{{serie.overview}}</span></p>

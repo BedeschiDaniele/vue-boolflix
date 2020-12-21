@@ -4,9 +4,8 @@ var app = new Vue (
     data: {
       films:[],
       series:[],
-      arraylength:0,
-      arraylength1:0,
       votes:[],
+      votesserie:[],
       filmTitle:"",
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
@@ -22,8 +21,7 @@ var app = new Vue (
       })
       .then((result) => {
         this.films = result.data.results;
-        this.arraylength=result.data.results.length;
-        for (var i = 0; i < this.arraylength; i++) {
+        for (var i = 0; i < result.data.results.length; i++) {
           this.votes.push((Math.ceil(this.films[i].vote_average/2)));
         }
       });
@@ -39,8 +37,14 @@ var app = new Vue (
       })
       .then((result) => {
         this.series = result.data.results;
-        console.log(this.series);
+        for (var i = 0; i < result.data.results.length; i++) {
+          this.votesserie.push((Math.ceil(this.series[i].vote_average/2)));
+        }
       });
+    },
+    callfilmseries: function () {
+      this.searchfilm();
+      this.searchseries();
     },
     setflag: function (film) {
       let flag="";

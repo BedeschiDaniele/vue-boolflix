@@ -27,6 +27,9 @@ h1 {
   margin-left: 20px;
   text-transform: uppercase;
 }
+h2 {
+  color: white;
+}
 span {
   color: lightgray;
 }
@@ -68,7 +71,7 @@ li {
   border: 1px solid red;
 }
 /* Film */
-.container-film {
+.container-film,.container-serie {
   display: flex;
   justify-content: center;
   align-items: center;
