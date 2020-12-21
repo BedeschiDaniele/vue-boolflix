@@ -3,7 +3,10 @@ var app = new Vue (
     el:'.root',
     data: {
       films:[],
+      a:0,
       filmTitle:"",
+      numberstar:[],
+      numeromancante:5,
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
     methods: {
@@ -18,7 +21,17 @@ var app = new Vue (
       })
       .then((result) => {
         this.films = result.data.results;
+        this.a=result.data.results.length;
+        for (var i = 0; i < this.a; i++) {
+          this.numberstar.push(this.films[i].vote_average);
+        }
+        // this.numberstar=Math.ceil(this.films[i].vote_average/2);
+        console.log(this.numberstar);
+        this.numeromancante-=this.numberstar;
       });
+    },
+    starFilm: function () {
+       this.a = this.films.length;
     }
    }
   }

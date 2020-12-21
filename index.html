@@ -34,12 +34,11 @@
             <p>Titolo: <span>{{film.title}}</span></p>
             <p>Titolo originale: <span>{{film.original_title}}</span></p>
             <p>Voto:
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </>
+              <i v-for="i in numberstar" class="fas fa-star starcolor"></i>
+              <i v-for="i in numeromancante" class="fas fa-star"></i>
+            </p>
+            <h1>{{numberstar}}</h1>
+            <h1 @click="starFilm">ciao   {{a}}</h1>
             <p>Overview: <span>{{film.overview}}</span></p>
           </div>
         </div>

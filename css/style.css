@@ -103,6 +103,6 @@ img {
   cursor: pointer;
   opacity: 1;
 }
-.layover i {
+.layover .starcolor {
   color: yellow;
 }
