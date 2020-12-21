@@ -70,7 +70,7 @@
             </p>
             <p>Voto:
               <i v-for="vote in votesserie[index]" class="fas fa-star starcolor"></i>
-              <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
+              <i v-for="vote in (5 - votesserie[index])" class="fas fa-star"></i>
             </p>
             <p>Overview: <span>{{serie.overview}}</span></p>
           </div>
