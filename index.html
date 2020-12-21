@@ -23,8 +23,11 @@
         </div>
         <div class="right">
           <input v-model="filmTitle" placeholder="Inserisci il titolo del film">
-          <i @click="searchfilm" id="search" class="fas fa-search"></i>
+          <a href="#"><i @click="callfilmseries" id="search" class="fas fa-search"></i></a>
+          <a href="#"><i class="fas fa-gift icon"></i></a>
+          <a href="#"><i class="fas fa-bell icon"></i></a>
           <img id="profile-avatar" src="https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png" alt="profile-avatar">
+          <a href="#"><i class="fas fa-sort-down icon"></i></a>
         </div>
       </header>
       <!-- Film -->
