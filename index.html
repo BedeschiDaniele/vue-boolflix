@@ -28,6 +28,7 @@
         </div>
       </header>
       <!-- Film -->
+      <h2 v-if="films.length >= 1">Film</h2>
       <div class="container-film">
         <div v-for="(film,index) in films" class="film">
           <img v-if="film.poster_path != null" :src='address+film.poster_path' :alt="film.title">
@@ -50,6 +51,7 @@
         </div>
       </div>
       <!-- Serie TV -->
+      <h2 v-if="series.length >= 1">Serie Tv</h2>
       <div class="container-serie">
         <div v-for="(serie,index) in series" class="film">
           <img v-if="serie.poster_path != null" :src='address+serie.poster_path' :alt="serie.title">

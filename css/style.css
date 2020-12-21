@@ -29,6 +29,9 @@ h1 {
 }
 h2 {
   color: white;
+  margin-top: 50px;
+  margin-left: 55px;
+  font-size: 30px;
 }
 span {
   color: lightgray;
@@ -76,9 +79,8 @@ li {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* width: 98%; */
   margin: auto;
-  padding: 100px 0
+  padding: 40px 0
 }
 .film {
   position: relative;
