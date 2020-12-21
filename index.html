@@ -9,7 +9,7 @@
     <title>Boolfix</title>
   </head>
   <body>
-    <div class="root" @keypress.13="searchfilm">
+    <div class="root" @keypress.13="searchfilm" @keypress.13="searchseries">
       <header>
         <div class="left">
           <h1>Netflix</h1>
@@ -45,6 +45,27 @@
               <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
             </p>
             <p>Overview: <span>{{film.overview}}</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="container-film">
+        <div v-for="(serie,index) in series" class="film">
+          <img v-if="serie.poster_path != null" :src='address+serie.poster_path' :alt="serie.title">
+          <img v-else src='https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg' alt="no-image">
+          <div class="layover">
+            <p>Titolo: <span>{{serie.name}}</span></p>
+            <p>Titolo originale: <span>{{serie.original_name}}</span></p>
+            <p id="lenguage">Lingua originale:
+              <span v-if="serie.original_language=='en' || serie.original_language=='it' || serie.original_language=='es'">
+                <img class="flags" :src=setflag(serie) :alt="serie.original_language">
+              </span>
+              <span class="textlen" v-else>{{serie.original_language}}</span>
+            </p>
+            <p>Voto:
+              <i v-for="vote in votes[index]" class="fas fa-star starcolor"></i>
+              <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
+            </p>
+            <p>Overview: <span>{{serie.overview}}</span></p>
           </div>
         </div>
       </div>
