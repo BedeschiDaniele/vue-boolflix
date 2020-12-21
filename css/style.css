@@ -106,3 +106,12 @@ img {
 .layover .starcolor {
   color: yellow;
 }
+#lenguage {
+  display: flex;
+  align-items: center;
+}
+.flag {
+  height: 25px;
+  width: 27px;
+  border: none;
+}
