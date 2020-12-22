@@ -32,7 +32,7 @@ h2 {
   color: white;
   margin-top: 50px;
   margin-left: 55px;
-  font-size: 30px;
+  font-size: 40px;
 }
 span {
   color: lightgray;
@@ -93,8 +93,8 @@ li {
   margin: 20px;
 }
 img {
-  width: 220px;
-  height: 330px;
+  width: 320px;
+  height: 430px;
   border: 2px solid lightgray;
 }
 .layover {
