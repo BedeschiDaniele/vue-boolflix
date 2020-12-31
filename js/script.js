@@ -8,6 +8,7 @@ var app = new Vue (
       votesserie:[],
       characters: [],
       filmTitle:"",
+      idfilm: "671",
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
     methods: {
@@ -25,6 +26,7 @@ var app = new Vue (
           for (var i = 0; i < result.data.results.length; i++) {
             this.votes.push((Math.ceil(this.films[i].vote_average/2)));
           }
+          console.log(this.films);
         });
     },
       searchseries: function() {
@@ -62,21 +64,22 @@ var app = new Vue (
     },
       searchcharacter: function() {
         axios
-        .get('https://api.themoviedb.org/3/movie/671/credits?', {
+        .get(`https://api.themoviedb.org/3/movie/ ${this.idfilm}/credits?`, {
           params: {
             api_key: '1e26c6a15aa1b1d7e6be784af83e54ac',
             language:'en-US'
           }
         })
         .then((result) => {
-          if (result.data.cast.length >= 5) {
-            // for (var i = 0; i < array.length; i++) {
-            //   this.characters = result.data.cast;
-            // }
-          }else {
+          if (result.data.cast.length <= 5) {
             this.characters = result.data.cast;
-          }
+          }else {
+            for (var i = 0; i < 5; i++) {
+                this.characters.push(result.data.cast[i]);
+              }
+            }
           console.log(this.characters);
+          // console.log(result.data.cast);
         });
       }
     }

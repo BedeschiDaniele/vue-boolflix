@@ -49,6 +49,9 @@
               <i v-for="vote in votes[index]" class="fas fa-star starcolor"></i>
               <i v-for="vote in (5 - votes[index])" class="fas fa-star"></i>
             </p>
+            <!-- Milestone 4 -->
+            <span class="actor">Attori:</span>
+            <span v-for="character in characters"> <span>{{character.name}}, </span></span>
             <p>Overview: <span>{{film.overview}}</span></p>
           </div>
         </div>
@@ -72,6 +75,8 @@
               <i v-for="vote in votesserie[index]" class="fas fa-star starcolor"></i>
               <i v-for="vote in (5 - votesserie[index])" class="fas fa-star"></i>
             </p>
+            <span class="actor">Attori:</span>
+            <span v-for="character in characters"> <span>{{character.name}}, </span></span>
             <p>Overview: <span>{{serie.overview}}</span></p>
           </div>
         </div>
