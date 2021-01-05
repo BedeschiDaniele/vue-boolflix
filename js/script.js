@@ -7,9 +7,10 @@ var app = new Vue (
       votes:[],
       votesserie:[],
       characters: [],
+      charactersserie: [],
       filmTitle:"",
       idfilms: [],
-      idfilm: "671",
+      newFilms:[],
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
     methods: {
@@ -28,8 +29,6 @@ var app = new Vue (
             this.votes.push((Math.ceil(this.films[i].vote_average/2)));
             this.idfilms.push(result.data.results[i].id);
           }
-          console.log(this.films);
-          console.log(this.idfilms);
         });
     },
       searchseries: function() {
@@ -51,7 +50,7 @@ var app = new Vue (
       callfilmseries: function () {
         this.searchfilm();
         this.searchseries();
-        this.searchcharacter();
+        // this.searchcharacter();
     },
       setflag: function (film) {
         let flag="";
@@ -65,9 +64,9 @@ var app = new Vue (
         }
         return flag;
     },
-      searchcharacter: function() {
+      searchcharacter: function(film) {
         axios
-        .get(`https://api.themoviedb.org/3/movie/ ${this.idfilms}/credits?`, {
+        .get(`https://api.themoviedb.org/3/movie/ ${film.id}/credits`, {
           params: {
             api_key: '1e26c6a15aa1b1d7e6be784af83e54ac',
             language:'en-US'
@@ -83,8 +82,38 @@ var app = new Vue (
                 this.characters.push(result.data.cast[i]);
               }
             }
-          console.log(this.characters);
-          // console.log(result.data.cast);
+          //   this.newFilms = this.films.map(
+          //   (element) => {
+          //     let char = this.characters;
+          //
+          //     const newFilmObj = {
+          //       ...element,
+          //       char
+          //     };
+          //
+          //     return newFilmObj;
+          //   }
+          // )
+        });
+      },
+      searchcharacterserie: function(serie) {
+        axios
+        .get(`https://api.themoviedb.org/3/tv/${serie.id}/credits`, {
+          params: {
+            api_key: '1e26c6a15aa1b1d7e6be784af83e54ac',
+            language:'en-US'
+          }
+        })
+        .then((result) => {
+          if (result.data.cast.length <= 5) {
+            this.charactersserie = result.data.cast;
+          }
+          else {
+            this.charactersserie = [];
+            for (let i = 0; i < 5; i++) {
+                this.charactersserie.push(result.data.cast[i]);
+              }
+            }
         });
       }
     }

@@ -36,7 +36,7 @@
         <div v-for="(film,index) in films" class="film">
           <img v-if="film.poster_path != null" :src='address+film.poster_path' :alt="film.title">
           <img v-else src='https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg' alt="no-image">
-          <div class="layover">
+          <div @mouseover="searchcharacter(film)" class="layover">
             <p>Titolo: <span>{{film.title}}</span></p>
             <p>Titolo originale: <span>{{film.original_title}}</span></p>
             <p id="lenguage">Lingua originale:
@@ -62,7 +62,7 @@
         <div v-for="(serie,index) in series" class="film">
           <img v-if="serie.poster_path != null" :src='address+serie.poster_path' :alt="serie.title">
           <img v-else src='https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg' alt="no-image">
-          <div class="layover">
+          <div class="layover" @mouseover="searchcharacterserie(serie)">
             <p>Titolo: <span>{{serie.name}}</span></p>
             <p>Titolo originale: <span>{{serie.original_name}}</span></p>
             <p id="lenguage">Lingua originale:
@@ -76,7 +76,7 @@
               <i v-for="vote in (5 - votesserie[index])" class="fas fa-star"></i>
             </p>
             <span class="actor">Attori:</span>
-            <span v-for="character in characters"> <span>{{character.name}}, </span></span>
+            <span v-for="character in charactersserie"> <span>{{character.name}}, </span></span>
             <p>Overview: <span>{{serie.overview}}</span></p>
           </div>
         </div>
