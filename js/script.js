@@ -8,6 +8,7 @@ var app = new Vue (
       votesserie:[],
       characters: [],
       filmTitle:"",
+      idfilms: [],
       idfilm: "671",
       address:"https://image.tmdb.org/t/p/w220_and_h330_face/"
     },
@@ -25,8 +26,10 @@ var app = new Vue (
           this.films = result.data.results;
           for (var i = 0; i < result.data.results.length; i++) {
             this.votes.push((Math.ceil(this.films[i].vote_average/2)));
+            this.idfilms.push(result.data.results[i].id);
           }
           console.log(this.films);
+          console.log(this.idfilms);
         });
     },
       searchseries: function() {
@@ -64,7 +67,7 @@ var app = new Vue (
     },
       searchcharacter: function() {
         axios
-        .get(`https://api.themoviedb.org/3/movie/ ${this.idfilm}/credits?`, {
+        .get(`https://api.themoviedb.org/3/movie/ ${this.idfilms}/credits?`, {
           params: {
             api_key: '1e26c6a15aa1b1d7e6be784af83e54ac',
             language:'en-US'
@@ -73,8 +76,10 @@ var app = new Vue (
         .then((result) => {
           if (result.data.cast.length <= 5) {
             this.characters = result.data.cast;
-          }else {
-            for (var i = 0; i < 5; i++) {
+          }
+          else {
+            this.characters = [];
+            for (let i = 0; i < 5; i++) {
                 this.characters.push(result.data.cast[i]);
               }
             }
